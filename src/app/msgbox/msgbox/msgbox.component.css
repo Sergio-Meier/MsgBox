@@ -1,0 +1,27 @@
+.msgbox-icon {
+    height: 48px;
+    width: 48px;
+    font-size: 48px;
+}
+
+.box {
+    float: left;
+    white-space: pre-line;
+}
+
+.content {
+    display: flex;
+    align-items: flex-start;
+}
+
+.mrg-r {
+    margin-right: 15px;
+}
+
+.mat-dialog-container {
+    min-height: 500px;
+}
+
+.btn {
+    margin-right: 15px;
+}

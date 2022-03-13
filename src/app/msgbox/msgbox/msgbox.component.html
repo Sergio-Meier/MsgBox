@@ -1,0 +1,48 @@
+<h2 mat-dialog-title>{{data.Title}}</h2>
+<mat-dialog-content class="mat-typography content">
+    <div class="box mrg-r">
+        <span *ngIf="isInfo" class="material-icons msgbox-icon text-primary box">
+            info
+        </span>
+        <span *ngIf="isQuestion" class="material-icons msgbox-icon text-warning box">
+            help
+        </span>
+        <span *ngIf="isWarn" class="material-icons msgbox-icon text-warning box">
+            warning
+        </span>
+        <span *ngIf="isError" class="material-icons msgbox-icon text-danger box">
+            report
+        </span>
+    </div>
+    
+    <div class="box">
+        {{message}}
+    </div>
+</mat-dialog-content>
+<mat-dialog-actions align="start">
+    <button 
+        class="btn btn-primary"
+        name="button1"
+        *ngIf="button1Text.length > 0"
+        (click)="onButtonClick(button1Result)"
+    >
+        {{button1Text}}
+    </button>
+    <button 
+        class="btn btn-primary"
+        name="button2"
+        *ngIf="button2Text.length > 0"
+        (click)="onButtonClick(button2Result)"
+    >
+        {{button2Text}}
+    </button>
+    <button 
+        class="btn btn-primary"
+        name="button3"
+        *ngIf="button3Text.length > 0"
+        (click)="onButtonClick(button3Result)"
+    >
+        {{button3Text}}
+    </button>
+    <!-- <button mat-button mat-dialog-close>Abbrechen</button> -->
+</mat-dialog-actions>

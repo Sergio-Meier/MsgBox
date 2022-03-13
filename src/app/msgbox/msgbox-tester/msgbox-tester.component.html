@@ -1,0 +1,143 @@
+<h3>MsgBox-Tester</h3>
+
+<!-- INFO -->
+<h5>
+    <tr>
+        <td>
+            <span class="material-icons text-primary">
+                info
+            </span>
+        </td>
+        <td>
+            This is only a simple test to check if the deployment and the display on a mobile device works
+        </td>
+    </tr>
+</h5>
+<br>
+
+<form>
+
+    <!-- Title -->
+    <div class="row">
+        <div class="col-12 mrg-b">
+            <mat-form-field appearance="outline">
+                <mat-label>Title</mat-label>
+                <input 
+                    matInput 
+                    type="text" 
+                    [(ngModel)]="msgBoxProperties.Title"
+                    name="Title"
+                    >
+            </mat-form-field>
+        </div>
+    </div>
+
+    <!-- Message -->
+    <div class="row">
+        <div class="col-12 mrg-b">
+            <mat-form-field appearance="outline">
+                <mat-label>Message</mat-label>
+                <textarea 
+                    matInput 
+                    type="text" 
+                    [(ngModel)]="msgBoxProperties.Message"
+                    name="Message"
+                    [rows]="7"
+                ></textarea>
+            </mat-form-field>
+        </div>
+    </div>
+
+    <!-- Icon + Buttons -->
+    <div class="row">
+        <!-- Icon -->
+        <div class="col-6 mrg-b">
+            <mat-form-field appearance="outline">
+                <mat-label>Icon</mat-label>
+                <mat-select
+                    [(ngModel)]="msgBoxProperties.Icon"
+                    name="Icon"
+                    id="Icon"
+                >
+                    <mat-option *ngFor="let item of iconList" [value]="item.id">
+                        {{item.caption}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <!-- Buttons -->
+        <div class="col-6 mrg-b">
+            <mat-form-field appearance="outline">
+                <mat-label>Buttons</mat-label>
+                <mat-select
+                    [(ngModel)]="msgBoxProperties.Buttons"
+                    name="Buttons"
+                    id="Buttons"
+                >
+                    <mat-option *ngFor="let item of buttonList" [value]="item.id">
+                        {{item.caption}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+    </div>
+
+    <!-- Userdefined Buttons -->
+    <div class="row">
+        <div class="col-4 mrg-b">
+            <mat-form-field appearance="outline">
+                <mat-label>Button1</mat-label>
+                <input 
+                    matInput 
+                    type="text" 
+                    [(ngModel)]="msgBoxProperties.Button1Text"
+                    name="Button1"
+                    >
+            </mat-form-field>
+        </div>
+        <div class="col-4 mrg-b">
+            <mat-form-field appearance="outline">
+                <mat-label>Button2</mat-label>
+                <input 
+                    matInput 
+                    type="text" 
+                    [(ngModel)]="msgBoxProperties.Button2Text"
+                    name="Button2"
+                    >
+            </mat-form-field>
+        </div>
+        <div class="col-4 mrg-b">
+            <mat-form-field appearance="outline">
+                <mat-label>Button3</mat-label>
+                <input 
+                    matInput 
+                    type="text" 
+                    [(ngModel)]="msgBoxProperties.Button3Text"
+                    name="Button3"
+                    >
+            </mat-form-field>
+        </div>
+    </div>
+
+
+    <!-- Errors -->
+    <!-- <errors-alert
+        [errors]="errors"
+    ></errors-alert> -->
+
+    <!-- Buttons -->
+    <div class="mrg-b">
+        <!-- Show MsgBox -->
+        <button 
+            class="btn btn-success" 
+            (click)="showMsgBox()">
+            Show MsgBox
+        </button>
+        <br>
+        <br>
+        <span *ngIf="resultText.length > 0">
+            <strong>Result: </strong> {{resultText}}
+        </span>
+    </div>
+
+</form>
